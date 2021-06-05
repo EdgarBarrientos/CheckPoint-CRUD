@@ -1,32 +1,27 @@
-package com.cognizant.CheckPoint.domain;
-
+package com.cognizant.CheckPoint.Domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-//@JsonIgnoreProperties
+@JsonIgnoreProperties
 @Entity
-
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty
     public Long id;
 
-
+    @JsonProperty()
     public String name;
 
 
-    public int releaseYear;
 
-    public Movie(String name, Long id,int releaseYear ) {
-        this.name = name;
-        this.id = id;
-        this.releaseYear = releaseYear;
-    }
+    @JsonProperty
+    public String releasedYear;
+
 
     public Long getId() {
         return id;
@@ -44,14 +39,15 @@ public class Movie {
         this.name = name;
     }
 
-    public int getReleaseYear() {
-        return releaseYear;
+    public String getReleasedYear() {
+        return releasedYear;
     }
 
-    public void setReleaseYear(int releaseYear) {
-        this.releaseYear = releaseYear;
+    public void setReleasedYear(String releasedYear) {
+        this.releasedYear = releasedYear;
     }
 
     public Movie() {
     }
 }
+
