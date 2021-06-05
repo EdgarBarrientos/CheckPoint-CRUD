@@ -1,3 +1,3 @@
-INSERT INTO User (id,email) VALUES (1,'edgar@email.com');
-INSERT INTO User (id,email) VALUES (2,'edgar2@email.com');
+INSERT INTO Movie (id,name,releaseYear) VALUES (1,'xMen1',2021);
+
 
