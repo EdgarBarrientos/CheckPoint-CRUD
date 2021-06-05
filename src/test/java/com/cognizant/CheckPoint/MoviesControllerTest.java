@@ -19,8 +19,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-
-
 public class MoviesControllerTest {
         @Autowired
         private MockMvc mockMvc;
@@ -35,6 +33,8 @@ public class MoviesControllerTest {
     }
 
     @Test
+    @Transactional
+    @Rollback
     public void checkReleaseMovie() throws Exception{
         String movieJson = "{\n" +
                 "\"movieName\";\"xMen10\",\n" +
@@ -51,7 +51,6 @@ public class MoviesControllerTest {
         mockMvc.perform(request)
                 .andExpect(status().isOk())
                 .andExpect(content().string(movieResponse));
-
     }
 
 
