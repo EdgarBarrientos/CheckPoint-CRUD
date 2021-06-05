@@ -10,17 +10,23 @@ import javax.persistence.GenerationType;
 
 //@JsonIgnoreProperties
 @Entity
+
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonProperty
     public Long id;
 
-    @JsonProperty
+
     public String name;
 
-    @JsonProperty
+
     public int releaseYear;
+
+    public Movie(String name, Long id,int releaseYear ) {
+        this.name = name;
+        this.id = id;
+        this.releaseYear = releaseYear;
+    }
 
     public Long getId() {
         return id;
